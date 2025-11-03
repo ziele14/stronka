@@ -10,16 +10,17 @@ body {
 
 /* --- Header --- */
 header {
-  background-color: #222;
-  color: white;
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 20px;
+  background: #EEE;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 3rem;
-  letter-spacing: 2px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 60px;
+  color: red;
+  transform: rotate(-3deg); /* Just tilt it permanently */
+  text-shadow: 2px 2px 2px #999;
 }
 
 /* --- Main Content --- */
