@@ -15,7 +15,8 @@
       color: #222;
       margin: 0;
       padding: 0;
-      line-height: 1.9;
+      /* Reduced line height to be tighter, like the image */
+      line-height: 1.6; 
     }
 
     /* This content block is centered, like your original page */
@@ -35,17 +36,29 @@
       text-align: center; /* This centers the title */
     }
 
+    /* --- NEW PARAGRAPH STYLING --- */
     .story-content p {
       font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      /* This preserves the line breaks from your PDF text */
-      white-space: pre-line;
+      /* Remove large bottom margin */
+      margin-top: 0;
+      margin-bottom: 0.25rem; 
+      /* Use normal line breaks, not pre-line */
+      white-space: normal; 
+      /* Add the "tab" indent */
+      text-indent: 2.5em; 
+      /* Justify text to match the blocky look in the image */
+      text-align: justify; 
     }
 
     /* Style for the right-aligned quote */
     .story-content .quote {
       text-align: right;
-      margin-bottom: 3rem; /* Adds the "newline" space you wanted */
+      margin-bottom: 2.5rem; /* Space after quote */
+      /* Remove indent from quote */
+      text-indent: 0; 
+      /* Keep pre-line for the quote's formatting */
+      white-space: pre-line; 
+      font-style: italic;
     }
 
     footer {
@@ -63,14 +76,16 @@
   <main class="story-content">
     <h1>El vagabundo solar</h1>
 
-    <!-- ADDED the "quote" class here -->
+    <!-- This quote will not have the indent -->
     <p class="quote"><em>Słońce nie przekroczy swoich granic
-      mówi Heraklit – w przeciwnym razie
-      Erynie, służebnice sprawiedliwości, 
-      schwytałyby je na gorącym uczynku</em></p>
-
-    <p><em>Wszystko w nim się zaczyna.</em> </p>
-
+      mówi Heraklit – w przeciwnym
+      razie Erynie, służebnice
+      sprawiedliwości, schwytałyby je na
+      gorącym uczynku</em></p>
+    
+    <!-- All paragraphs below will have the indent -->
+    <p><em>Wszystko w nim się zaczyna.</em></p>
+    
     <p>W sylwetce żula solarnego, potomka Majów czy też innego plemienia Mezoameryki. W
       jego idealnie odchylonej o trzydzieści stopni od pionu pozie. W jego immanentnej prezencji
       stanowiącej opokę sucholeskiego krajobfazu.</p>
@@ -82,18 +97,18 @@
     <p>Oczy błądzące, potencjalnie zamyślone, na pewno zajęte, poszukujące czegoś
       nieuchwytnego. Lekkość kroku wyśmiewa nasze wyprostowane postawy i rzuca wyzwanie swoją
       agresywną innością. Angażuje nas w dylemat porównania chodów, daje nam do myślenia czy to
-      może on poznał tajnik efektywnego poruszania - nam parweniuszom niedostępny - czy to my naszą
+      może on poznał tajnik efektywnego poruszania – nam parweniuszom niedostępny – czy to my naszą
       normalnością powinniśmy jego zdominować.</p>
     
-    <p>Jest to pierwsze udane, polskie perpetuum mobile - postać na ciągłym chodzie. Nikt nigdy
+    <p>Jest to pierwsze udane, polskie perpetuum mobile – postać na ciągłym chodzie. Nikt nigdy
       nie widział go pijącego, ale trzeźwego tak samo; nikt nie wie dokąd albo też i po co on zmierza, ale
-      jednak kroczy on dzielnie po chodnikach gminnych, on - jeden z ostatnich z nomadów czasów
+      jednak kroczy on dzielnie po chodnikach gminnych, on – jeden z ostatnich z nomadów czasów
       transformacji.</p>
     
     <p>Jest to postać wolna od wszelakiego wpływu ideologicznego, odporna na elekcje, na
       przemiany ustrojowe, na trendy. Jego lica, idealnie zakonserwowane w mieszance alkoholowej
-      podkreślają tylko jego śniadość i skryte marzycielstwo. To on własnoręcznie - czy też
-      własnonożnie - umieścił naszą gminę w świadomości narodu.</p>
+      podkreślają tylko jego śniadość i skryte marzycielstwo. To on własnoręcznie – czy też
+      własnonożnie – umieścił naszą gminę w świadomości narodu.</p>
     
     <p>Każdego roku, mniej więcej w okresie wczesnej jesieni, kiedy postać solarnego podróżnika
       w sposób wręcz brutalny rozświetla swym rumianym licem deptaki, szczęśliwi mieszkańcy, których
@@ -101,7 +116,7 @@
       tworzą niemy szpaler, honorujący zasługi tego podchmielonego półboga.</p>
     
     <p>Nikt dotychczas nie podjął się tego niemożliwego zadania, jakim jest opisanie jego zasług,
-      lecz każdy kto spędził dostatecznie dużo czasu w naszej wiosce zdaje sobie - even podświadomie
+      lecz każdy kto spędził dostatecznie dużo czasu w naszej wiosce zdaje sobie – nawet podświadomie
       sprawę z tego ile mu zawdzięczamy.</p>
     
     <p>Bóg może i został przez nas zabity, lecz w tym konkretnym miejscu na ziemi udało się
@@ -110,41 +125,41 @@
     
     <p>Wracając do mojego osobistego zaczątku, już wyjaśniam. Każdy, mający jakąkolwiek
       styczność z dziećmi przedszkolnymi, zdaje sobie sprawę, że nazywanie ich „dzieckiem" jest z
-      naszej strony - osób naturalnie dojrzałych i, jak wiadomo, rezolutnych - pewnym ukłonem. Termin
+      naszej strony – osób naturalnie dojrzałych i, jak wiadomo, rezolutnych – pewnym ukłonem. Termin
       ten stara się w sposób niezdarny uczłowieczyć widzianą przez nas postać, która może i na pierwszy
       rzut oka ma coś z człowieka, jednak ten niedostępny wzrok, jakby zbrużdżony wieloma latami
       krwawych walk, wytwarza w nas pewnego rodzaju skrytą niechęć, która podświadomie każe nam
       odsunąć się od tego tworu w budowie.</p>
     
-    <p>Dla nas - wolnych od hormonalnego wypaczenia rodziców - nie rezonuje on zwyczajnie
+    <p>Dla nas – wolnych od hormonalnego wypaczenia rodziców – nie rezonuje on zwyczajnie
       żadną rzekomą słodyczą. Śladowe ilości pomyślunku, jak również rozdziawiona paszcza oraz
       tendencja do zachowań perfekcyjnie przypadkowych, skłaniają nas do dalszej dehumanizacji tego
-      człowieka w załążka, czekającego na prawdziwe narodziny.</p>
+      człowieka w załążku, czekającego na prawdziwe narodziny.</p>
     
-    <p>I to właśnie w solarnym żulu moje pierwotne narodziny nastąpiły. W him to powstałem na
+    <p>I to właśnie w solarnym żulu moje pierwotne narodziny nastąpiły. W nim to powstałem na
       dobre. Myśli po raz pierwszy zaczęły się jako tako układać, a nowo otrzymane krytyczne spojrzenie
-      na otoczenie zmusiło mnie do zapytania: „Mamo, a kim jest ten pan i gdzie on idzie?".</p>
+      na otoczenie zmusiło mnie do zapytania: <em>„Mamo, a kim jest ten pan i gdzie on idzie?".</em></p>
     
-    <p>Było to pytanie z kategorii tych najgorszych - tych, które spalają duszę rodzica i podburzają
+    <p>Było to pytanie z kategorii tych najgorszych – tych, które spalają duszę rodzica i podburzają
       jego filary, na których skonstruowana jest krucha dorosłość, której tak kurczowo staramy się
       trzymać, wmawiając sobie, że wiemy, co robimy.</p>
     
-    <p>Odpowiedź brzmiała zapewne w stylu: „Oj, dziecko, to tylko miejscowy pijak, nie zawracaj
-      sobie nim głowy", choć ja od razu wyczułem w niej nutkę fałszu, jakiś skryty stres, jednak przebijał
+    <p>Odpowiedź brzmiała zapewne w stylu: <em>„Oj, dziecko, to tylko miejscowy pijak, nie zawracaj
+      sobie nim głowy",</em> choć ja od razu wyczułem w niej nutkę fałszu, jakiś skryty stres, jednak przebijał
       się przez zwyczajną na pierwszy rzut oka, bezpieczną odpowiedź. Zdałem sobie sprawę, że to
       pytanie uderzyło bardzo blisko jądra prawdy ukrywanej przede mną, w którą od tego czasu
       niezmiernie chciałem się zagłębić.</p>
     
     <p>W następnych latach, odczuwając z dnia na dzień coraz mocniej, ile zawdzięczam
-      solarnemu wędrowcy, jak wielki, ale też i obciążający dar został mi - jakby od niechcenia
+      solarnemu wędrowcy, jak wielki, ale też i obciążający dar został mi – jakby od niechcenia
       podrzucony czy też ofiarowany, wyczekiwałem następnego spotkania. Starałem się zaaranżować
       sytuację, w której bylibyśmy w stanie zamienić kilka słów w cztery oczy. Nie było to jednak łatwe;
       zdawało się, że jakaś siła steruje moimi rodzicami, że ich jedynym celem jest niedopuszczenie do
       mojego dalszego rozwoju w nim i przez niego.</p>
     
     <p>Spotykałem wówczas wielu marnych, zwyczajnych pijaczków, którzy, podpierając się
-      licznymi drzewami, zaśmiecali krajobraz naszej wioski; tak zwani okupańci sklepu „u Eli" brzydzili
-      mnie swoją bełkotliwością, „kreseczką" i „zeszycikiem". Nie posiadali oni daru kontemplacji, byli
+      licznymi drzewami, zaśmiecali krajobraz naszej wioski; tak zwani okupańci sklepu <em>„u Eli"</em> brzydzili
+      mnie swoją bełkotliwością, <em>„kreseczką"</em> i <em>„zeszycikiem".</em> Nie posiadali oni daru kontemplacji, byli
       tylko źródłem hałasu i smrodu. Często w myślach dokonywałem porównań; moja dziecięca fantazja
       podkreślała źródła bezapelacyjnej wygranej solarnego wojownika w starciu z tymi marnymi
       podróbkami. Podkreślała honorowe gesty, poprzez które rozkładał on swoich naśladowców na
@@ -153,7 +168,7 @@
     <p>Już na tym etapie moje zafascynowanie solarnym żulem było nie do ujarzmienia.
       Wyczekiwałem chwili przypadkowego przecięcia się z nim, niczym prezentów wigilijnych jeszcze
       kilka lat wcześniej. Wizja ta była zarazem ekscytująca, jak i niezmiernie stresująca. Co jeśli uzna
-      on, że niedostatecznie korzystam z daru? Co jeśli go w jakiś sposób - zawiodłem? Przecież jego
+      on, że niedostatecznie korzystam z daru? Co jeśli go w jakiś sposób – zawiodłem? Przecież jego
       system wartości, jak i postrzeganie rzeczywistości, jest absolutnie poza zasięgiem zwykłych
       śmiertelników. Takie myśli spędzały mi wówczas sen z powiek. Moja matka, widząc tak
       nieproporcjonalnie wielkie rozbicie moje w stosunku do aktualnego wieku i dojrzałości, udała się
@@ -171,23 +186,23 @@
       ekstatyczne odczucie, nieporównywalne nawet do zbliżenia z dyszą basenową, opowiedzianego mi
       tego lata przez mojego bliskiego przyjaciela.</p>
     
-    <p>I wtem go ujrzałem - kroczył jak zwykle, znacznie odchylony, rumiany, wesoły. Spojrzał na
-      mnie, a coś dziwnego - wręcz zwierzęcego - błysnęło w jego oczach. Przystanął i rzekł:</p>
+    <p>I wtem go ujrzałem – kroczył jak zwykle, znacznie odchylony, rumiany, wesoły. Spojrzał na
+      mnie, a coś dziwnego – wręcz zwierzęcego – błysnęło w jego oczach. Przystanął i rzekł:</p>
     
-    <p>Te [...] kurw, ech [...] no, gdzie jest ten, Tomek?</p>
+    <p>– Te [...] kurw, ech [...] no, gdzie jest ten, Tomek?</p>
     
     <p>Mój umysł momentalnie wskoczył na wyższe obroty, zacząłem całym sobą rozpracowywać
       tę zagadkę. O co temu przebiegłemu Sfinksowi może chodzić? W jaki sposób odpowiedzieć na ten
       zadany problemat? Tomek... Tomasz jaki? Czy to odniesienie biblijne? Biłem się z myślami,
-      wgapiony i oślepiony jego blaskiem, z prawdopodobnie idiotycznie rozdziawiongą gębą. W końcu
+      wgapiony i oślepiony jego blaskiem, z prawdopodobnie idiotycznie rozdziawioną gębą. W końcu
       zebrałem się i odrzekłem:</p>
     
-    <p>- Tomasz, niewierny, jednak po prawicy Jego zasiadł.</p>
+    <p>– Tomasz, niewierny, jednak po prawicy Jego zasiadł.</p>
     
-    <p>Zobaczyłem nagły błysk w jego oczach, przebiegły - szelmowski uśmiech - zagościł na
+    <p>Zobaczyłem nagły błysk w jego oczach, przebiegły – szelmowski uśmiech – zagościł na
       jego twarzy. Po raz pierwszy przy mnie nieznacznie się wyprostował i odrzekł:</p>
     
-    <p>Dobrze, skoro tak, to znów ujrzysz mnie niebawem.</p>
+    <p>– Dobrze, skoro tak, to znów ujrzysz mnie niebawem.</p>
     
     <p>I zniknął.</p>
     
