@@ -83,8 +83,13 @@ header h1 {
   padding-left: 5px;
 }
 
+/* --- New Left Pane Section Styles --- */
 
-.intro {
+.intro-text {
+  margin-bottom: 2rem;
+}
+
+.intro-image-section {
   margin-bottom: 2rem;
 }
 
@@ -93,8 +98,25 @@ header h1 {
   width: 100%;
   max-width: 500px;
   height: auto;
-  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+/* Style for the new scripture text */
+.new-scripture {
+  margin-bottom: 3rem; /* Extra space before posts */
+  padding: 0 1rem;
+}
+
+.new-scripture p {
+  font-style: italic;
+  text-align: center;
+  white-space: pre-line; /* Preserves line breaks */
+  font-size: 1.1rem;
+  color: #333;
+}
+/* --- End New Left Pane Styles --- */
 
 .posts article {
   margin-bottom: 2rem;
@@ -114,6 +136,7 @@ header h1 {
 pre {
   white-space: pre-wrap;
   word-wrap: break-word;
+  font-family: "Times New Roman", Times, serif; /* Match body font */
 }
 
 /* --- Footer --- */
