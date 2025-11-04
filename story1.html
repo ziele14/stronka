@@ -52,13 +52,15 @@
 
     /* Style for the right-aligned quote */
     .story-content .quote {
-      text-align: right;
+      /* text-align: right; --- Removed this */
+      text-align: left; /* Aligns text to the left within the new block */
       margin-bottom: 2.5rem; /* Space after quote */
-      /* Remove indent from quote */
+      margin-left: 3em;  /* Indent from the left */
+      margin-right: 3em; /* Indent from the right */
       text-indent: 0; 
-      /* Keep pre-line for the quote's formatting */
       white-space: pre-line; 
       font-style: italic;
+      font-size: 1rem; /* Made font slightly smaller to set it apart */
     }
 
     footer {
@@ -78,7 +80,7 @@
 
     <!-- This quote will not have the indent -->
     <p class="quote"><em>Słońce nie przekroczy swoich granic
-      mówi Heraklit – w przeciwnym
+      – mówi Heraklit – w przeciwnym
       razie Erynie, służebnice
       sprawiedliwości, schwytałyby je na
       gorącym uczynku</em></p>
