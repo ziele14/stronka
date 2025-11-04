@@ -24,14 +24,63 @@ header h1 {
 }
 
 /* --- Main Content --- */
-main {
-  max-width: 800px;
+/* This is the new container for the two-pane layout */
+.main-container {
+  max-width: 1200px; /* Wider to accommodate two panes */
   margin: 3rem auto;
   background: white;
-  padding: 2rem;
+  padding: 0; /* Padding will be on the panes */
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap; /* Allows panes to stack on small screens */
 }
+
+/* Left pane styling */
+.left-pane {
+  flex: 3; /* Takes up 3 parts of the space */
+  min-width: 300px; /* Ensures it doesn't get too small */
+  padding: 2rem;
+}
+
+/* Right pane styling */
+.right-pane {
+  flex: 1; /* Takes up 1 part of the space */
+  min-width: 250px;
+  padding: 2rem;
+  background-color: #fdfdfd;
+  border-left: 1px solid #eee;
+  border-radius: 0 12px 12px 0; /* Rounds the right corners */
+}
+
+.right-pane h2 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #333;
+  margin-top: 0;
+}
+
+.story-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.story-list li {
+  margin-bottom: 1rem;
+}
+
+.story-list a {
+  text-decoration: none;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.2rem;
+  color: red;
+  transition: all 0.2s;
+}
+
+.story-list a:hover {
+  text-decoration: underline;
+  padding-left: 5px;
+}
+
 
 .intro {
   margin-bottom: 2rem;
@@ -59,4 +108,17 @@ footer {
   padding: 2rem 0;
   margin-top: 3rem;
   border-top: 1px solid #ddd;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 800px) {
+  .main-container {
+    flex-direction: column; /* Stack panes vertically */
+  }
+
+  .right-pane {
+    border-left: none; /* Remove side border */
+    border-top: 1px solid #eee; /* Add top border */
+    border-radius: 0 0 12px 12px; /* Round bottom corners */
+  }
 }

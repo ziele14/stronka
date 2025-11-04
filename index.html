@@ -11,44 +11,61 @@
     <h1>Ołóweczek</h1>
   </header>
 
-  <main>
-    <section class="intro">
+  <!-- This 'main-container' will now hold both panes -->
+  <main class="main-container">
     
-      <img src="images/beherit_bnin.jpg" alt="Tutaj opis obrazka, np. śmieszny żart" width="500">
-      <pre>
-        Wpisy istotne, słowo pisane w myśl pisma. Artykuły ważne i kluczowe aby słowo się rzekło albowiem na początku było słowo i słowem był Mesjasz. 
-        Notatki niech będą notatowane aby głosić naukę. Ziarno siać i od plew oddzielić. Niechaj będzie tak jak być musi. Mesjanistyczny rynsztok głównego nurtu. Brukowiec niebios.
-      </pre>
-    </section>
-
-    <section class="posts">
-      <article>
-        <h2>Wierszyk</h2>
-        <p class="author"><em>autor: Długi zjeb</em></p>
+    <!-- Left pane for your current content -->
+    <div class="left-pane">
+      <section class="intro">
+        <!-- Using a placeholder image for broader compatibility -->
+        <img src="https://placehold.co/600x400/EEE/333?text=Beherit+Bnin" alt="Placeholder Image" style="width:100%; max-width:500px; height:auto; margin-bottom: 1rem;">
         <pre>
-          Żyć, śmiać się, kochać 
-          Rozkurwić Kórnik i tel Aviv?
-          Mierzyć wysoko i dać dupy 
-          Sodomy, tramwaje i guma do żucia
-          Z okazji imienin babcia z dziadkiem
+          Wpisy istotne, słowo pisane w myśl pisma. Artykuły ważne i kluczowe aby słowo się rzekło albowiem na początku było słowo i słowem był Mesjasz. 
+          Notatki niech będą notatowane aby głosić naukę. Ziarno siać i od plew oddzielić. Niechaj będzie tak jak być musi. Mesjanistyczny rynsztok głównego nurtu. Brukowiec niebios.
         </pre>
-      </article>
+      </section>
 
-      <hr />
+      <section class="posts">
+        <article>
+          <h2>Wierszyk</h2>
+          <p class="author"><em>autor: Długi zjeb</em></p>
+          <pre>
+            Żyć, śmiać się, kochać 
+            Rozkurwić Kórnik i tel Aviv?
+            Mierzyć wysoko i dać dupy 
+            Sodomy, tramwaje i guma do żucia
+            Z okazji imienin babcia z dziadkiem
+          </pre>
+        </article>
 
-      <article>
-        <h2>Melman<h2>
-        <p class="author"><em>autor: Mesjasz</em></p>
-        <pre>
-          Daleko i blisko z Twoim cz.
-          pozwóle, melman, uderzyć tym
-          i powiedz przyjaciółkom swoim
-          gdzie jest kutas.
-          Albowiem drogę poszerzono i srogim być nie trzeba
-          w gwizdek zadął anielskich trąb zakon
-        </pre>
-      </article>
-    </section>
+        <hr />
+
+        <article>
+          <!-- Fixed the unclosed h2 tag here -->
+          <h2>Melman</h2>
+          <p class="author"><em>autor: Mesjasz</em></p>
+          <pre>
+            Daleko i blisko z Twoim cz.
+            pozwóle, melman, uderzyć tym
+            i powiedz przyjaciółkom swoim
+            gdzie jest kutas.
+            Albowiem drogę poszerzono i srogim być nie trzeba
+            w gwizdek zadął anielskich trąb zakon
+          </pre>
+        </article>
+      </section>
+    </div>
+
+    <!-- Right pane for your longer story links -->
+    <aside class="right-pane">
+      <h2>Dłuższe Opowieści</h2>
+      <ul class="story-list">
+        <li><a href="story1.html" target="_blank">Pierwsza Długa Historia</a></li>
+        <li><a href="#">Kolejna Opowieść (jeszcze nie gotowa)</a></li>
+        <li><a href="#">Tytuł Trzeci</a></li>
+      </ul>
+    </aside>
+
   </main>
 
   <footer>
