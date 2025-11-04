@@ -41,6 +41,8 @@ header h1 {
   flex: 3; /* Takes up 3 parts of the space */
   min-width: 300px; /* Ensures it doesn't get too small */
   padding: 2rem;
+  /* This prevents the pane from collapsing and letting text flow under the right pane */
+  overflow: hidden; 
 }
 
 /* Right pane styling */
@@ -86,6 +88,14 @@ header h1 {
   margin-bottom: 2rem;
 }
 
+/* Style for the intro image */
+.intro-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
 .posts article {
   margin-bottom: 2rem;
 }
@@ -98,6 +108,12 @@ header h1 {
 .posts .author {
   color: #555;
   margin-bottom: 0.8rem;
+}
+
+/* This will make all <pre> text wrap correctly */
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 /* --- Footer --- */
@@ -122,3 +138,4 @@ footer {
     border-radius: 0 0 12px 12px; /* Round bottom corners */
   }
 }
+
