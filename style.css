@@ -138,6 +138,10 @@ pre {
   word-wrap: break-word;
   font-family: "Times New Roman", Times, serif; /* Match body font */
 }
+.justified {
+  text-align: justify;
+}
+
 
 /* --- Footer --- */
 footer {
