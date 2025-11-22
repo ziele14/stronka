@@ -23,6 +23,15 @@ header h1 {
   text-shadow: 2px 2px 2px #999;
 }
 
+header .logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+header .logo-link:hover {
+  text-decoration: underline; /* opcjonalnie */
+}
+
 /* --- Main Content --- */
 /* This is the new container for the two-pane layout */
 .main-container {
