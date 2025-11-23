@@ -29,6 +29,63 @@
         <!-- Using your local image path -->
         <img src="images/beherit_bnin.jpg" alt="Tutaj opis obrazka, np. śmieszny żart" class="intro-image">
       </section>
+
+      <section id="aktualnosci"></section>
+      <script>
+async function wczytajLosowyArtykul() {
+  try {
+    // 1. Pobranie strony wydarzeń
+    const html = await fetch("wydarzenia.html").then(r => r.text());
+
+    // 2. Zamiana na DOM
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    // 3. Pobranie wszystkich artykułów
+    const artykuly = Array.from(doc.querySelectorAll(".posts article"));
+    
+    if (artykuly.length === 0) {
+      document.getElementById("aktualnosci").innerHTML =
+        "<h2>Aktualne aktualności</h2><p>Brak artykułów.</p>";
+      return;
+    }
+
+    // 4. Losowanie artykułu
+    const losowy = artykuly[Math.floor(Math.random() * artykuly.length)];
+
+    // 5. Pobranie tytułu
+    const tytul =
+      losowy.querySelector("h1, h2, h3")?.innerText || "Aktualność";
+
+    // 6. Wyświetlenie na index.html
+    document.getElementById("aktualnosci").innerHTML = `
+      <h2 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 2rem; text-align:center; margin-bottom:1rem;">
+        Aktualne aktualności
+      </h2>
+
+      <article>
+        <h3>${tytul}</h3>
+        ${losowy.innerHTML}
+      </article>
+
+      <p style="text-align:center; margin-top:1.5rem;">
+        <a href="wydarzenia.html" style="font-weight:bold; text-decoration:underline;">
+          Czytaj więcej →
+        </a>
+      </p>
+    `;
+  } catch (err) {
+    console.error("Błąd ładowania artykułów:", err);
+    document.getElementById("aktualnosci").innerHTML =
+      "<p>Nie udało się załadować aktualności.</p>";
+  }
+}
+
+wczytajLosowyArtykul();
+</script>
+
+      
+
       
       <!-- 3. NEW SCRIPTURE SECTION -->
       <section class="new-scripture">
@@ -88,6 +145,9 @@
   <footer>
     <p>© 2025 czarna mamba Szamotuły. All rights reserved. Won od naszej marki</p>
   </footer>
+  <div id="aktualnosci"></div>
+
+
 </body>
 </html>
 
