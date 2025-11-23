@@ -1,68 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El vagabundo solar</title>
-  <!-- 
-    Minimal styles for the story page, as requested.
-    It's all in this file, no external CSS.
-  -->
+  <title>Grafomania</title>
+
   <style>
+    /* --- General layout --- */
     body {
       font-family: "Times New Roman", Times, serif;
       background-color: #fafafa;
       color: #222;
       margin: 0;
       padding: 0;
-      /* Reduced line height to be tighter, like the image */
-      line-height: 1.6; 
+      line-height: 1.9;
     }
 
-    /* This content block is centered, like your original page */
-    .story-content {
+    /* --- Header (Copied from style.css) --- */
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #EEE;
+    }
+
+    header h1 {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 60px;
+      color: red;
+      transform: rotate(-3deg);
+      text-shadow: 2px 2px 2px #999;
+      margin: 0;
+    }
+
+    header h1 a {
+      color: red;
+      text-decoration: none;
+    }
+
+    /* --- Main Content (Single column) --- */
+    main {
       max-width: 800px;
       margin: 3rem auto;
       background: white;
-      padding: 2rem 3rem;
+      padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-
-    .story-content h1 {
-      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      font-size: 3.5rem;
-      color: #333;
-      text-align: center; /* This centers the title */
+    
+    /* Page Title */
+    .page-title {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 2.5rem;
+        color: #333;
+        text-align: center;
+        margin-top: 0;
     }
 
-    /* --- NEW PARAGRAPH STYLING --- */
-    .story-content p {
-      font-size: 1.1rem;
-      /* Remove large bottom margin */
-      margin-top: 0;
-      margin-bottom: 0.25rem; 
-      /* Use normal line breaks, not pre-line */
-      white-space: normal; 
-      /* Add the "tab" indent */
-      text-indent: 2.5em; 
-      /* Justify text to match the blocky look in the image */
-      text-align: justify; 
+    /* --- Posts (Copied from style.css) --- */
+    .posts article {
+      margin-bottom: 2rem;
+    }
+    
+    .posts h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .posts .author {
+      color: #555;
+      margin-bottom: 0.8rem;
     }
 
-    /* Style for the right-aligned quote */
-    .story-content .quote {
-      /* text-align: right; --- Removed this */
-      text-align: left; /* Aligns text to the left within the new block */
-      margin-bottom: 2.5rem; /* Space after quote */
-      margin-left: 3em;  /* Indent from the left */
-      margin-right: 3em; /* Indent from the right */
-      text-indent: 0; 
-      white-space: pre-line; 
-      font-style: italic;
-      font-size: 1rem; /* Made font slightly smaller to set it apart */
+    .posts p {
+      margin-top: 0.5rem;
+      white-space: pre-line;
+      text-align: justify;
     }
 
+    /* --- Footer (Copied from style.css) --- */
     footer {
       text-align: center;
       color: #666;
@@ -75,23 +90,21 @@
 </head>
 <body>
 
-   <header>
-     <h1><a href="index.html" class="logo-link">Ołóweczek</a></h1>
+  <header>
+    <h1><a href="index.html" class="logo-link">Ołóweczek</a></h1>
   </header>
 
-  <main class="story-content">
-      <h2 class="page-title">Żul solarny</h2>
-      <p class="author"><em>autor: Długolud</em></p>
-    <br>
-    <!-- This quote will not have the indent -->
-    <p class="quote"><em>Słońce nie przekroczy swoich granic
-      – mówi Heraklit – w przeciwnym
-      razie Erynie, służebnice
-      sprawiedliwości, schwytałyby je na
-      gorącym uczynku</em></p>
+  <main>
+    <h2 class="page-title">Aktualne aktualności</h2>
     
-    <!-- All paragraphs below will have the indent -->
-    <p><em>Wszystko w nim się zaczyna.</em></p>
+    <section class="posts">
+
+      <article>
+        <h2>Tytuł długiego artykułu</h2>
+        <p class="author"><em>autor: Autor Artykułu</em></p>
+
+        <p></p>
+           <p><em>Wszystko w nim się zaczyna.</em></p>
     
     <p>W sylwetce żula solarnego, potomka Majów czy też innego plemienia Mezoameryki. W
       jego idealnie odchylonej o trzydzieści stopni od pionu pozie. W jego immanentnej prezencji
@@ -218,13 +231,17 @@
       trakcie kolacji, kompletnie nie wiedząc, co się ze mną stało. Jedyne, co czułem, to błogie ciepło i
       poczucie, że jednak jestem godzien. Sam zasadniczo nie wiedziałem jeszcze czego.</p>
 
+
+        </p>
+      </article>
+
+    </section>
+
   </main>
 
-  <!-- The same copyright footer -->
   <footer>
     <p>© 2025 czarna mamba Szamotuły. All rights reserved. Won od naszej marki</p>
   </footer>
 
 </body>
 </html>
-
