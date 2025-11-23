@@ -141,6 +141,12 @@ header .logo-link:hover {
   margin-bottom: 0.8rem;
 }
 
+
+.posts p {
+  text-align: justify;
+}
+
+
 /* This will make all <pre> text wrap correctly */
 pre {
   white-space: pre-wrap;
