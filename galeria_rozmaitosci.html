@@ -178,10 +178,10 @@ function showImage(index) {
   lightboxImg.src = img.src;
   lightboxCaption.textContent = img.dataset.caption || "";
 
-  // śmieszna animacja
-  lightboxImg.classList.remove("jump");
+  // goofy animacja
+  lightboxImg.classList.remove("goofy");
   void lightboxImg.offsetWidth; // reset animacji
-  lightboxImg.classList.add("jump");
+  lightboxImg.classList.add("goofy");
 }
 
 items.forEach((img, index) => {
