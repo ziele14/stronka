@@ -66,6 +66,37 @@
       text-align: center;
       max-width: 90%;
     }
+    /* Strzałki lightbox */
+    .arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+    padding: 10px;
+    transition: transform 0.2s ease;
+    }
+
+    .arrow:hover {
+    transform: translateY(-50%) scale(1.2);
+    }
+
+    .arrow.left { left: 20px; }
+    .arrow.right { right: 20px; }
+
+    /* Śmieszna animacja "podskoku" przy zmianie zdjęcia */
+    .jump {
+    animation: hop 0.35s ease;
+    }
+
+    @keyframes hop {
+    0% { transform: scale(1) translateY(0); }
+    30% { transform: scale(1.05) translateY(-10px); }
+    100% { transform: scale(1) translateY(0); }
+    }
+
   </style>
 </head>
 
@@ -112,28 +143,75 @@
 
   <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox">
+
+  <div class="arrow left" id="prev">⟵</div>
+
+  <div class="lightbox-content">
     <img id="lightbox-img" src="">
     <div id="lightbox-caption" class="lightbox-caption"></div>
   </div>
 
-  <script>
-    const items = document.querySelectorAll(".gallery-item img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxCaption = document.getElementById("lightbox-caption");
+  <div class="arrow right" id="next">⟶</div>
 
-    items.forEach(img => {
-      img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
-        lightboxCaption.textContent = img.dataset.caption || "";
-      });
-    });
+</div>
+
+
+  <script>
+    
+
+    const items = document.querySelectorAll(".gallery-item img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxCaption = document.getElementById("lightbox-caption");
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+
+let currentIndex = 0;
+
+function showImage(index) {
+  const img = items[index];
+  lightboxImg.src = img.src;
+  lightboxCaption.textContent = img.dataset.caption || "";
+
+  // śmieszna animacja
+  lightboxImg.classList.remove("jump");
+  void lightboxImg.offsetWidth; // reset animacji
+  lightboxImg.classList.add("jump");
+}
+
+items.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    currentIndex = index;
+    lightbox.style.display = "flex";
+    showImage(currentIndex);
+  });
+});
+
+prev.addEventListener("click", (event) => {
+  event.stopPropagation();
+  currentIndex = (currentIndex - 1 + items.length) % items.length;
+  showImage(currentIndex);
+});
+
+next.addEventListener("click", (event) => {
+  event.stopPropagation();
+  currentIndex = (currentIndex + 1) % items.length;
+  showImage(currentIndex);
+});
+
+// Zamknięcie lightboxa kliknięciem w tło
+lightbox.addEventListener("click", (event) => {
+  if (event.target === lightbox) {
+    lightbox.style.display = "none";
+  }
+});
+
 
     // Zamknięcie lightboxa kliknięciem
     lightbox.addEventListener("click", () => {
       lightbox.style.display = "none";
     });
+    
   </script>
 
   <footer>
