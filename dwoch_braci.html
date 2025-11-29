@@ -149,6 +149,16 @@
   </main>
 
   <footer>
+    <p>Odwiedziłeś tę stronę <span id="visit-count">0</span> razy. Przykro mi.</p>
+
+<script>
+  const countEl = document.getElementById("visit-count");
+  let visits = localStorage.getItem("visitCount") || 0;
+  visits = parseInt(visits) + 1;
+  localStorage.setItem("visitCount", visits);
+  countEl.textContent = visits;
+</script>
+
     <p>oloweczek.net@gmail.com - kontakt jedynie w przypadku zażaleń po przykrej epifanii</p>
     <p>© 2025 czarna mamba Szamotuły. All rights reserved. Won od naszej marki</p>
   </footer>
