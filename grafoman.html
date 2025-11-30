@@ -162,28 +162,28 @@ Czemu wylałem? Przecież nie musiałem; nie wylewałem już tyle razy wcześnie
   <footer>
     <p>Odwiedziłeś tę stronę <span id="visit-count">0</span> razy. Przykro mi.</p>
 
-<script>
-  const countEl = document.getElementById("visit-count");
-  let visits = localStorage.getItem("visitCount") || 0;
-  visits = parseInt(visits) + 1;
-  localStorage.setItem("visitCount", visits);
-  countEl.textContent = visits;
-</script>
+    <script>
+      let visits = localStorage.getItem("visitCount");
+      visits = visits ? parseInt(visits) + 1 : 1;
+      localStorage.setItem("visitCount", visits);
+      document.getElementById("visit-count").textContent = visits;
+    </script>
+
     <p>oloweczek.net@gmail.com - kontakt jedynie w przypadku zażaleń po przykrej epifanii</p>
     <p>© 2025 czarna mamba Szamotuły. All rights reserved. Won od naszej marki</p>
 
      
     <p>Epifania została doznana <span id="global-count">0</span> razy.</p>
 
-  <script>
-  // GLOBALNY LICZNIK WEJŚĆ – DZIAŁAJĄCY 2025
-  fetch("https://api.countapi.dev/hit/oloweczek.net/global")
-    .then(r => r.json())
-    .then(data => {
-      document.getElementById("global-count").textContent = data.value;
-    })
-    .catch(err => console.error("Błąd licznika:", err));
-  </script>
+    <script>
+    // GLOBALNY LICZNIK WEJŚĆ – DZIAŁAJĄCY 2025
+    fetch("https://api.countapi.dev/hit/oloweczek.net/global")
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById("global-count").textContent = data.value;
+      })
+      .catch(err => console.error("Błąd licznika:", err));
+    </script>
      
   </footer>
 
