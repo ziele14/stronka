@@ -21,6 +21,13 @@
 
   <!-- This 'main-container' will now hold both panes -->
   <main class="main-container">
+
+        <div class="search-box">
+      <input type="text" id="search-input" placeholder="Szukaj w całej witrynie...">
+    </div>
+
+    <div id="search-results"></div>
+
     
     <!-- Left pane for your current content -->
     <div class="left-pane">
@@ -183,6 +190,38 @@ wczytajLosowyArtykul();
   </footer>
 
   
+  <script src="search_loader.js"></script>
+
+  <script>
+  const input = document.getElementById("search-input");
+  const resultsBox = document.getElementById("search-results");
+
+  input.addEventListener("input", () => {
+    const q = input.value.toLowerCase().trim();
+    resultsBox.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    const results = window.SEARCH_DATA.filter(item =>
+      item.content.includes(q) || item.title.toLowerCase().includes(q)
+    );
+
+    if (results.length === 0) {
+      resultsBox.innerHTML = "<p>Nic nie znaleziono.</p>";
+      return;
+    }
+
+    results.forEach(item => {
+      resultsBox.innerHTML += `
+        <div class="search-result">
+          <a href="${item.url}">
+            <strong>${item.title}</strong>
+          </a>
+        </div>
+      `;
+    });
+  });
+  </script>
 
 </body>
 </html>
