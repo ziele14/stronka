@@ -167,31 +167,22 @@ wczytajLosowyArtykul();
     <p>oloweczek.net@gmail.com - kontakt jedynie w przypadku zażaleń po przykrej epifanii</p>
     <p>© 2025 czarna mamba Szamotuły. All rights reserved. Won od naszej marki</p>
 
-   
+   <p>Epifania została doznana <span id="global-count">—</span> razy.</p>
 
-    <p>Epifania została doznana <span id="global-count">—</span> razy.</p>
-
-
-        <script>
-    fetch("https://hits.sh/oloweczek.net.svg?view=1&style=flat")
-      .then(res => res.text())
-      .then(svg => {
-        // hits.sh zwraca SVG, więc musimy wyciągnąć z niego liczbę
-        const match = svg.match(/>([0-9]+)</);
-        const count = match ? match[1] : "—";
-        document.getElementById("global-count").textContent = count;
-      })
-      .catch(err => {
-        console.error("Błąd globalnego licznika:", err);
-        document.getElementById("global-count").textContent = "—";
-      });
-    </script>
-
+  <script>
+  fetch("https://hits.sh/oloweczek.net.json?view=1")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("global-count").textContent = data.views;
+    })
+    .catch(err => {
+      console.error("Błąd globalnego licznika:", err);
+      document.getElementById("global-count").textContent = "—";
+    });
+  </script>
     
   </footer>
 
-  
-  
 
 </body>
 </html>
