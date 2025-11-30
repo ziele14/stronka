@@ -167,22 +167,7 @@ wczytajLosowyArtykul();
     <p>oloweczek.net@gmail.com - kontakt jedynie w przypadku zażaleń po przykrej epifanii</p>
     <p>© 2025 czarna mamba Szamotuły. All rights reserved. Won od naszej marki</p>
 
-     <p>Epifania została doznana <span id="global-count">—</span> razy.</p>
-
-<script>
-fetch("https://hits.sh/oloweczek.net/")
-  .then(res => res.json())
-  .then(data => {
-    const count = data.views || data.total || "—";
-    document.getElementById("global-count").textContent = count;
-  })
-  .catch(err => {
-    console.error("Błąd globalnego licznika:", err);
-    document.getElementById("global-count").textContent = "—";
-  });
-</script>
-
-</script>
+    
 
 <a href="https://hits.sh/oloweczek.net/"><img alt="Hits" src="https://hits.sh/oloweczek.net.svg?label=epifanie&color=ff0000&labelColor=000000"/></a>
     
