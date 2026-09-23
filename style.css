@@ -1,26 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+
+/* --- Theme tokens --- */
+:root {
+  --bg: #fdfdfd;
+  --fg: #111111;
+  --muted: #666666;
+  --border: #111111;
+  --accent: #1b7a3d;
+  --mono: 'JetBrains Mono', 'Fira Code', 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0d0d0d;
+  --fg: #e6e6e6;
+  --muted: #999999;
+  --border: #e6e6e6;
+  --accent: #3ddc74;
+}
+
+* { box-sizing: border-box; }
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
 /* --- General layout --- */
 body {
-  font-family: "Times New Roman", Times, serif;
-  background-color: #fafafa;
-  color: #222;
+  font-family: var(--mono);
+  background-color: var(--bg);
+  color: var(--fg);
   margin: 0;
   padding: 0;
-  line-height: 1.9;
+  line-height: 1.7;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration-style: solid;
 }
 
 /* --- Header --- */
 header {
+  position: relative;
   text-align: center;
-  padding: 20px;
-  background: #EEE;
+  padding: 2rem 1rem 1.5rem;
+  background: transparent;
+  border-bottom: 2px solid var(--border);
 }
 
 header h1 {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 60px;
-  color: red;
-  transform: rotate(-3deg); /* Just tilt it permanently */
-  text-shadow: 2px 2px 2px #999;
+  font-family: var(--mono);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 9vw, 4.2rem);
+  color: var(--fg);
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-shadow: 1px 0 currentColor, -1px 0 currentColor;
 }
 
 header .logo-link {
@@ -29,44 +74,68 @@ header .logo-link {
 }
 
 header .logo-link:hover {
-  text-decoration: underline; /* opcjonalnie */
+  color: var(--fg);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: var(--fg);
+  color: var(--bg);
 }
 
 /* --- Main Content --- */
-/* This is the new container for the two-pane layout */
-.main-container {
-  max-width: 1200px; /* Wider to accommodate two panes */
+main {
+  max-width: 800px;
   margin: 3rem auto;
-  background: white;
-  padding: 0; /* Padding will be on the panes */
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-wrap: wrap; /* Allows panes to stack on small screens */
-}
-
-/* Left pane styling */
-.left-pane {
-  flex: 3; /* Takes up 3 parts of the space */
-  min-width: 300px; /* Ensures it doesn't get too small */
+  background: var(--bg);
   padding: 2rem;
-  /* This prevents the pane from collapsing and letting text flow under the right pane */
-  overflow: hidden; 
+  border: 1px solid var(--border);
 }
 
-/* Right pane styling */
+.main-container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  background: var(--bg);
+  padding: 0;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left-pane {
+  flex: 3;
+  min-width: 300px;
+  padding: 2rem;
+  overflow: hidden;
+}
+
 .right-pane {
-  flex: 1; /* Takes up 1 part of the space */
+  flex: 1;
   min-width: 250px;
   padding: 2rem;
-  background-color: #fdfdfd;
-  border-left: 1px solid #eee;
-  border-radius: 0 12px 12px 0; /* Rounds the right corners */
+  background-color: var(--bg);
+  border-left: 1px solid var(--border);
 }
 
 .right-pane h2 {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: #333;
+  font-family: var(--mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.4rem;
+  color: var(--fg);
   margin-top: 0;
 }
 
@@ -80,103 +149,207 @@ header .logo-link:hover {
 }
 
 .story-list a {
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--fg);
   text-decoration: none;
-  font-family: 'Arial Narrow', Arial, sans-serif;
-  font-size: 1.2rem;
-  color: red;
-  transition: all 0.2s;
+  border-bottom: 1px dashed var(--muted);
+}
+
+.story-list a::before {
+  content: "» ";
+  color: var(--muted);
 }
 
 .story-list a:hover {
-  text-decoration: underline;
-  padding-left: 5px;
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
-/* --- New Left Pane Section Styles --- */
+/* --- Left pane sections --- */
+.intro-text { margin-bottom: 2rem; }
+.intro-image-section { margin-bottom: 2rem; }
 
-.intro-text {
-  margin-bottom: 2rem;
-}
-
-.intro-image-section {
-  margin-bottom: 2rem;
-}
-
-/* Style for the intro image */
 .intro-image {
   width: 100%;
   max-width: 500px;
   height: auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  filter: grayscale(0.15);
 }
 
-/* Style for the new scripture text */
 .new-scripture {
-  margin-bottom: 3rem; /* Extra space before posts */
+  margin-bottom: 3rem;
   padding: 0 1rem;
 }
 
 .new-scripture p {
   font-style: italic;
   text-align: center;
-  white-space: pre-line; /* Preserves line breaks */
-  font-size: 1.1rem;
-  color: #333;
+  white-space: pre-line;
+  font-size: 1rem;
+  color: var(--muted);
 }
-/* --- End New Left Pane Styles --- */
 
-.posts article {
-  margin-bottom: 2rem;
+/* --- Titles --- */
+.page-title,
+.section-title {
+  font-family: var(--mono);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 2rem;
+  color: var(--fg);
+  text-align: center;
+  margin-top: 0;
 }
+
+/* --- Posts --- */
+.posts article { margin-bottom: 2rem; }
 
 .posts h2 {
-  font-size: 1.6rem;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 1.4rem;
   margin-bottom: 0.2rem;
 }
 
 .posts .author {
-  color: #555;
+  color: var(--muted);
   margin-bottom: 0.8rem;
+  font-size: 0.9rem;
 }
 
-
 .posts p {
+  margin-top: 0.5rem;
+  white-space: pre-line;
   text-align: justify;
 }
 
-
-/* This will make all <pre> text wrap correctly */
 pre {
   white-space: pre-wrap;
   word-wrap: break-word;
-  font-family: "Times New Roman", Times, serif; /* Match body font */
-}
-.justified {
-  text-align: justify;
+  font-family: var(--mono);
 }
 
+.justified { text-align: justify; }
+
+hr {
+  border: 0;
+  border-top: 1px dashed var(--border);
+  margin: 2rem 0;
+}
+
+/* --- Bottom links --- */
+.bottom-links {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.bottom-links a {
+  color: var(--fg);
+  font-size: 1rem;
+  font-family: var(--mono);
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 0;
+  border-bottom: 1px dashed var(--muted);
+}
+
+.bottom-links a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
 
 /* --- Footer --- */
 footer {
-  text-align: center;
-  color: #666;
-  font-size: 0.9rem;
-  padding: 2rem 0;
+  color: var(--muted);
+  font-size: 0.85rem;
   margin-top: 3rem;
-  border-top: 1px solid #ddd;
+  border-top: 2px solid var(--border);
+  font-family: var(--mono);
 }
 
-/* --- Responsive Design --- */
+.footer-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.footer-bar .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--fg);
+  display: inline-block;
+}
+
+.footer-bar .bar-label {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.footer-inner {
+  text-align: center;
+  padding: 1.5rem 1rem 2rem;
+}
+
+.footer-inner p { margin: 0.4rem 0; }
+
+/* --- Konami easter egg --- */
+.glitch-mode h1,
+.glitch-mode h2,
+.glitch-mode .page-title,
+.glitch-mode .section-title {
+  animation: glitch 0.22s infinite;
+}
+
+@keyframes glitch {
+  0%   { text-shadow: 2px 0 red, -2px 0 cyan; transform: translate(0, 0); }
+  20%  { text-shadow: -2px 0 red, 2px 0 cyan; transform: translate(-1px, 1px); }
+  40%  { text-shadow: 2px 0 red, -2px 0 cyan; transform: translate(1px, -1px); }
+  60%  { text-shadow: -2px 0 red, 2px 0 cyan; transform: translate(-1px, -1px); }
+  80%  { text-shadow: 2px 0 red, -2px 0 cyan; transform: translate(1px, 1px); }
+  100% { text-shadow: 0 0 red, 0 0 cyan; transform: translate(0, 0); }
+}
+
+/* --- CRT scanlines, dark mode only --- */
+:root[data-theme="dark"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.025) 0px,
+    rgba(255, 255, 255, 0.025) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  mix-blend-mode: overlay;
+}
+
+/* --- Responsive --- */
 @media (max-width: 800px) {
-  .main-container {
-    flex-direction: column; /* Stack panes vertically */
-  }
+  .main-container { flex-direction: column; }
 
   .right-pane {
-    border-left: none; /* Remove side border */
-    border-top: 1px solid #eee; /* Add top border */
-    border-radius: 0 0 12px 12px; /* Round bottom corners */
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 500px) {
+  .theme-toggle {
+    position: static;
+    display: block;
+    margin: 0 auto 1rem;
   }
 }

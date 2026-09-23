@@ -16,6 +16,7 @@
 </head>
 <body>
   <header>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="przełącz motyw">[dark]</button>
     <h1><a href="index.html" class="logo-link">Ołóweczek</a></h1>
   </header>
 
@@ -30,8 +31,11 @@
       
       <!-- 1. "Wpisy istotne" text moved here -->
       <section class="intro-text">
-        <pre>
-          Wpisy istotne, słowo pisane w myśl pisma. Artykuty ważne i kluczowe aby słowo się rzekło albowiem na początku było słowo i słowem był Mesjasz. Notatki niech będą notatowane aby głosić naukę. Ziarno siać i od plew oddzielić. Niechaj będzie tak jak być musi. Mesjanistyczny rynsztok głównego nurtu. Brukowiec niebios.
+        <pre>Wpisy istotne, słowo pisane w myśl pisma. 
+Artykuły ważne i kluczowe aby słowo się rzekło albowiem na początku było słowo i słowem był Mesjasz.
+Notatki niech będą notatowane aby głosić naukę. Ziarno siać i od plew oddzielić. Niechaj będzie tak jak być musi.
+Mesjanistyczny rynsztok głównego nurtu.
+Brukowiec niebios.
         </pre>
       </section>
 
@@ -46,7 +50,8 @@
           A potem bóg stworzył obrazy, aby ukazywały to, co niestworzone na lądach, niebiosach jak i w toni wód. 
           I umieścił je bóg w zakurzonych pokojach niespełnionych artystów, 
           aby przesiąkły wonią zatęchłych marzeń i terpentyny. 
-          A Bóg widział, że były perwersyjne. I tak upłynął wieczór i poranek ósmego dnia.
+          A Bóg widział, że były perwersyjne. 
+          I tak upłynął wieczór i poranek ósmego dnia.
         </p>
       </section>
 
@@ -77,9 +82,7 @@ async function wczytajLosowyArtykul() {
       naglowek?.innerText || "Aktualność";
 
     document.getElementById("aktualnosci").innerHTML = `
-      <h2 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 2rem; text-align:center; margin-bottom:1rem;">
-        Aktualne aktualności
-      </h2>
+      <h2 class="section-title">Aktualne aktualności</h2>
 
       <article>
         <h3>${tytul}</h3>
@@ -154,26 +157,24 @@ wczytajLosowyArtykul();
   </main>
 
   <footer>
-   
+    <div class="footer-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="bar-label">footer.sh — ołóweczek.net</span></div>
+    <div class="footer-inner">
+<p>Odwiedziłeś tę stronę <span id="visit-count">0</span> razy.</p>
+    <p>czas systemowy: <span id="clock">--:--:--</span></p>
 
-    <p>Odwiedziłeś tę stronę <span id="visit-count">0</span> razy.</p>
-
-    <script>
-      let visits = localStorage.getItem("visitCount");
-      visits = visits ? parseInt(visits) + 1 : 1;
-      localStorage.setItem("visitCount", visits);
-      document.getElementById("visit-count").textContent = visits;
-    </script>
+    
 
     <p>oloweczek.net@gmail.com – kontakt jedynie w przypadku doznania marnej epifanii</p>
     <p>© 2025 czarna mamba Szamotuły. All rights reserved. Won od naszej marki</p>
 
     
 
-<a href="https://hits.sh/oloweczek.net/"><img alt="Hits" src="https://hits.sh/oloweczek.net.svg?style=flat-square&label=dotychczas%20os%C3%B3b%20spo%C5%BCy%C5%82o%3A&color=ff0000&labelColor=000000"/></a>    
+<a href="https://hits.sh/oloweczek.net/"><img alt="Hits" src="https://hits.sh/oloweczek.net.svg?style=flat-square&label=dotychczas%20os%C3%B3b%20spo%C5%BCy%C5%82o%3A&color=ff0000&labelColor=000000"/></a>
+    </div>
   </footer>
 
 
+  <script src="main.js" defer></script>
 </body>
 </html>
 

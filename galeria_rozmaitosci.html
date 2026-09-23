@@ -24,7 +24,7 @@
     .gallery-item img {
       width: 100%;
       height: auto;
-      border-radius: 10px;
+      border: 1px solid var(--border);
       cursor: pointer;
       transition: transform 0.2s ease;
     }
@@ -35,8 +35,9 @@
 
     .caption {
       font-size: 0.9rem;
-      color: #666;
+      color: var(--muted);
       margin-top: 5px;
+      font-family: var(--mono);
     }
 
     /* LIGHTBOX */
@@ -44,7 +45,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0,0,0,0.9);
       justify-content: center;
       align-items: center;
       flex-direction: column;
@@ -55,8 +56,7 @@
     .lightbox img {
       max-width: 90%;
       max-height: 80vh;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #000;
+      border: 1px solid #444;
     }
 
     .lightbox .lightbox-caption {
@@ -103,40 +103,18 @@
 
 
   </style>
-
- <style>
-  .bottom-links {
-      text-align: center;
-      margin-top: 40px;
-      margin-bottom: 40px;
-  }
-
-  .bottom-links a {
-      color:  red;              /* identyczny czerwony jak w index */
-      font-size: 1.2rem;           /* to samo co linki w prawej kolumnie */
-      font-family: inherit;        /* gwarancja że będzie ten sam font */
-      text-decoration: none;
-      display: inline-block;
-      margin: 10px 0;
-  }
-
-  .bottom-links a:hover {
-      text-decoration: underline;
-  }
-</style>
-
-
 </head>
 
 <body>
 
   <!-- IDENTYCZNY NAGŁÓWEK -->
   <header>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="przełącz motyw">[dark]</button>
     <h1><a href="index.html" class="logo-link">Ołóweczek</a></h1>
   </header>
 
   <main>
-    <h2 style="text-align:center; margin-top: 1.5rem;">Galeria zdjęć</h2>
+    <h2 class="page-title">Galeria zdjęć</h2>
 
     <div class="gallery-container">
 
@@ -178,10 +156,7 @@
       <hr style="margin-top: 3rem; margin-bottom: 2rem;">
 
   <section class="bottom-links">
-    <h2 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-              font-size: 1.8rem; margin-bottom: 1rem;">
-      Więcej mięska
-    </h2>
+    <h2 class="section-title">Więcej mięska</h2>
 
     <ul class="story-list" style="list-style:none; padding:0; line-height:1.2;">
       <li><a href="wydarzenia.html">Wydarzenia ze świata, jak i z ojczyzny</a></li>
@@ -270,22 +245,21 @@ lightbox.addEventListener("click", (event) => {
   </script>
 
   <footer>
-   <p>Odwiedziłeś tę stronę <span id="visit-count">0</span> razy.</p>
+    <div class="footer-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="bar-label">footer.sh — ołóweczek.net</span></div>
+    <div class="footer-inner">
+<p>Odwiedziłeś tę stronę <span id="visit-count">0</span> razy.</p>
+    <p>czas systemowy: <span id="clock">--:--:--</span></p>
 
-  <script>
-    let visits = localStorage.getItem("visitCount");
-    visits = visits ? parseInt(visits) + 1 : 1;
-    localStorage.setItem("visitCount", visits);
-    document.getElementById("visit-count").textContent = visits;
-  </script>
+  
 
     <p>oloweczek.net@gmail.com – kontakt jedynie w przypadku doznania marnej epifanii</p>
     <p>© 2025 czarna mamba Szamotuły. All rights reserved. Won od naszej marki</p>
 
 
 <a href="https://hits.sh/oloweczek.net/"><img alt="Hits" src="https://hits.sh/oloweczek.net.svg?style=flat-square&label=dotychczas%20os%C3%B3b%20spo%C5%BCy%C5%82o%3A&color=ff0000&labelColor=000000"/></a>
-  
+    </div>
   </footer>
 
+  <script src="main.js" defer></script>
 </body>
 </html>
